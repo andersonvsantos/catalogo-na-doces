@@ -7,6 +7,11 @@ export const SABORES_BRIGADEIRO = [
   'Brigadeiro de Chocoboll'
 ];
 
+export const SABORES_TORTINHAS = [
+  'Tortinha de Limão',
+  'Tortinha de Maracujá',
+]
+
 export const produtos = [
   {
     id: 'brigadeiro-unitario',
@@ -21,19 +26,13 @@ export const produtos = [
   },
   {
     id: 'tortinhas-limao',
-    nome: 'Tortinha de Limão',
+    nome: 'Tortinhas',
     categoria: 'Tortinhas',
-    descricao: 'Massa crocante com recheio cremoso e azedinho de limão.',
+    descricao: 'Massa crocante com recheio cremoso e azedinho de limão/marácuja.',
     preco: 15,
-    imagens: ['tortinhas.jpg', 'tortinhas-limao-detalhe.jpg']
-  },
-  {
-    id: 'tortinhas-maracuja',
-    nome: 'Tortinha de Maracujá',
-    categoria: 'Tortinhas',
-    descricao: 'Massa crocante com um creme aveludado e calda de maracujá.',
-    preco: 15,
-    imagens: ['tortinhas.jpg']
+    imagens: ['tortinhas.jpg', 'tortinhas-limao-detalhe.jpg'],
+    temSabores: true,
+    sabores: SABORES_TORTINHAS
   },
   {
     id: 'brownie-sem-recheio',

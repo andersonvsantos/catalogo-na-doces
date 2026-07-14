@@ -1,6 +1,6 @@
 export default function Header({ onHomeClick, onOpenCart, cartCount }) {
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-pink-100 shadow-sm animate-na-fade-up">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <button
           type="button"

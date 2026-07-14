@@ -7,13 +7,13 @@ export default function ProductCard({ product, onOpenProduct }) {
       tabIndex={0}
       onClick={() => onOpenProduct(product)}
       onKeyDown={(event) => event.key === 'Enter' && onOpenProduct(product)}
-      className="group cursor-pointer flex flex-col h-full"
+      className="group cursor-pointer flex flex-col h-full animate-na-card transition-transform duration-300 ease-out hover:-translate-y-1"
     >
-      <div className="aspect-square bg-[#FFF5F6] rounded-2xl overflow-hidden mb-4 border border-pink-50/50">
+      <div className="aspect-square bg-[#FFF5F6] rounded-2xl overflow-hidden mb-4 border border-pink-50/50 shadow-sm transform-gpu transition duration-300 group-hover:shadow-lg">
         <img
           src={`/images/${imagemCapa}`}
           alt={product.nome}
-          className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+          className="w-full h-full object-cover group-hover:scale-105 transition duration-300 ease-out"
           onError={(event) => {
             event.target.src = 'https://placehold.co/400x400/FFF5F6/D9828F?text=N%26A+Doces';
           }}

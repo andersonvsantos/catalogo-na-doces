@@ -14,7 +14,7 @@ export default function ProductDetail({
   calcularPrecoBrigadeiro
 }) {
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-pink-50">
+    <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-pink-50 animate-na-fade-up">
       <button
         type="button"
         onClick={onBack}
