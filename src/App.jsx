@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './App.css'; // <--- Garanta que seu arquivo CSS está sendo importado aqui!
 
 import Header from './components/Header';
 import ProductCard from './components/ProductCard';
@@ -192,7 +193,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFFDFD] text-[#5C3A3F] flex flex-col font-sans antialiased">
+    <div className="min-h-screen bg-[#FFFDFD] text-[#5C3A3F] flex flex-col font-sans antialiased pb-24">
       <Header onHomeClick={handleHomeClick} onOpenCart={() => setIsCartOpen(true)} cartCount={cartCount} />
 
       <main className="flex-grow max-w-6xl w-full mx-auto px-6 py-8">
@@ -274,6 +275,38 @@ export default function App() {
         cartTotalItems={totalBrigadeirosNoCarrinho}
         getItemPriceLabel={getItemPriceLabel}
       />
+
+      {/* Barra Flutuante de Subtotal Fixo com Descontos Reais */}
+      {cartCount > 0 && !isCartOpen && (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] max-w-md bg-white border border-pink-100 shadow-2xl rounded-2xl px-5 py-4 z-40 flex items-center justify-between backdrop-blur-md bg-white/95 transition-all duration-300">
+          <div className="flex flex-col">
+            <span className="text-[10px] text-[#5C3A3F]/60 uppercase tracking-widest font-black">Subtotal</span>
+            <span className="text-lg font-black text-[#D9828F]">
+              R$ {calcularTotalCarrinho(cart).toFixed(2)}
+            </span>
+            <span className="text-[10px] text-gray-400">
+              {cartCount} {cartCount === 1 ? 'item' : 'itens'} adicionados
+            </span>
+          </div>
+          
+          <button
+            type="button"
+            onClick={() => setIsCartOpen(true)}
+            className="bg-[#D9828F] hover:bg-[#D9828F]/90 text-white font-black text-xs uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-200 flex items-center gap-2 active:scale-95 shadow-md shadow-pink-100"
+          >
+            Ver Sacola
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* Footer Estilizado com Identidade Visual & Ícones SVG Oficiais */}
       <footer className="w-full bg-[#FFF5F6]/40 border-t border-pink-100/50 py-10 px-6 mt-auto">
